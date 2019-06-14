@@ -30,6 +30,7 @@
 export default {
   data () {
     return {
+      filter: '',
       columns: [
         {
           name: 'ktp',
