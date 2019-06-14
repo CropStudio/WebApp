@@ -42,15 +42,22 @@ export default {
           sortable: true
         },
         {
-          name: 'tempatlahir',
-          field: 'tempatlahir',
+          name: 'tempat_lahir',
+          field: 'tempat_lahir',
           label: 'Tempat Lahir',
           align: 'center',
           sortable: true
         },
         {
-          name: 'jeniskelamin',
-          field: 'jeniskelamin',
+          name: 'tanggal_lahir',
+          field: 'tanggal_lahir',
+          label: 'Tanggal Lahir',
+          align: 'center',
+          sortable: true
+        },
+        {
+          name: 'jenis_kelamin',
+          field: 'jenis_kelamin',
           label: 'Jenis Kelamin',
           align: 'center',
           sortable: true
@@ -63,8 +70,8 @@ export default {
           sortable: true
         },
         {
-          name: 'statuskeluarga',
-          field: 'statuskeluarga',
+          name: 'status_keluarga',
+          field: 'status_keluarga',
           label: 'Status Keluarga',
           align: 'center',
           sortable: true
@@ -77,15 +84,15 @@ export default {
           sortable: true
         },
         {
-          name: 'nohp',
-          field: 'nohp',
+          name: 'no_hp',
+          field: 'no_hp',
           label: 'No Handphone',
           align: 'center',
           sortable: true
         },
         {
-          name: 'namakelompoktani',
-          field: 'namakelompoktani',
+          name: 'nama_kelompok_petani',
+          field: 'nama_kelompok_petani',
           label: 'Kelompok Tani',
           align: 'center',
           sortable: true
@@ -100,8 +107,9 @@ export default {
       this.loading = true
       this.$axios.get('datapetani').then(({ data }) => {
         this.loading = false
-        if (data.success) {
+        if (data.status) {
           this.data = data.message
+          console.log(data)
         } else {
           this.$q.notify({
             message: 'Gagal load data/tidak ada data!',
