@@ -1,30 +1,25 @@
 <template>
-    <q-page padding>
-        <q-table
-        title="Petani"
-        :data="data"
-        :columns="columns"
-        row-key="ktp"
-        >
-        <template v-slot:top>
-            <q-space/>
-              <q-input outlined dense debounce="300" color="primary" v-model.trim="filter">
-                <template v-slot:append>
-                  <q-icon name="search"/>
-                </template>
-              </q-input>
-              <q-btn
-                icon="add"
-                unelevated
-                label="Tambah"
-                size="sm"
-                class="q-ml-xs q-mr-xs q-pa-sm bg-green-5 text-white"
-                dense
-                @click="tambah()"
-              />
-        </template>
-        </q-table>
-    </q-page>
+  <q-page padding>
+    <q-table title="Petani" :data="data" :columns="columns" row-key="ktp" :loading="loading">
+      <template v-slot:top>
+        <q-space/>
+        <q-input outlined dense debounce="300" color="primary" v-model.trim="filter">
+          <template v-slot:append>
+            <q-icon name="search"/>
+          </template>
+        </q-input>
+        <q-btn
+          icon="add"
+          unelevated
+          label="Tambah"
+          size="sm"
+          class="q-ml-xs q-mr-xs q-pa-sm bg-green-5 text-white"
+          dense
+          @click="tambah()"
+        />
+      </template>
+    </q-table>
+  </q-page>
 </template>
 <script>
 export default {
@@ -96,8 +91,29 @@ export default {
           sortable: true
         }
       ],
-      data: []
+      data: [],
+      loading: false
     }
+  },
+  methods: {
+    loadData () {
+      this.loading = true
+      this.$axios.get('datapetani').then(({ data }) => {
+        this.loading = false
+        if (data.success) {
+          this.data = data.message
+        } else {
+          this.$q.notify({
+            message: 'Gagal load data/tidak ada data!',
+            color: 'negative',
+            icon: 'close'
+          })
+        }
+      })
+    }
+  },
+  mounted () {
+    this.loadData()
   }
 }
 </script>
