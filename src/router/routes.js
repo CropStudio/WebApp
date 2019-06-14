@@ -5,7 +5,8 @@ const routes = [
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
-      { path: 'petani', component: () => import('pages/petani/Index.vue') }
+      { path: 'petani', component: () => import('pages/petani/Index.vue') },
+      { path: 'petani/add', component: () => import('pages/petani/Insert.vue') }
     ]
   }
 ]

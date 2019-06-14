@@ -15,7 +15,7 @@
           size="sm"
           class="q-ml-xs q-mr-xs q-pa-sm bg-green-5 text-white"
           dense
-          @click="tambah()"
+          to="/petani/add"
         />
       </template>
     </q-table>

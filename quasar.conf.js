@@ -44,11 +44,14 @@ module.exports = function (ctx) {
         'QTr',
         'QTd',
         'QInput',
-        'QSpace'
+        'QSpace',
+        'QDate',
+        'QPopupProxy'
       ],
 
       directives: [
-        'Ripple'
+        'Ripple',
+        'ClosePopup'
       ],
 
       // Quasar plugins

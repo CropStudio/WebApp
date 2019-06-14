@@ -25,7 +25,7 @@
     >
       <q-list>
         <q-item-label header>Menu</q-item-label>
-        <q-item clickable exact to="/petani">
+        <q-item clickable to="/petani">
           <q-item-section avatar>
             <q-icon name="people" />
           </q-item-section>
