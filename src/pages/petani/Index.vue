@@ -109,7 +109,6 @@ export default {
         this.loading = false
         if (data.status) {
           this.data = data.message
-          console.log(data)
         } else {
           this.$q.notify({
             message: 'Gagal load data/tidak ada data!',
